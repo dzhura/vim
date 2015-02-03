@@ -1,6 +1,10 @@
 # vim
 My vim configuration files.
 
+Installation:
+1. Run PluginInstall inside from vim
+2. Go to YouCompleteMe installation guide
+
 My current vim version:
 
 [maxim@localhost ~]$ vim --version
