@@ -2,8 +2,8 @@
 My vim configuration files.
 
 Installation:
-1. Run PluginInstall inside from vim
-2. Go to YouCompleteMe installation guide
+1. Go to Vundle Installation guide (https://github.com/gmarik/Vundle.vim)
+2. Go to YouCompleteMe installation guide (https://github.com/Valloric/YouCompleteMe)
 
 My current vim version:
 
