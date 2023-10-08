@@ -1,0 +1,97 @@
+set nocompatible " required for Vundle
+
+" Vundle set-up
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim' " required
+
+call vundle#end()
+filetype on
+
+set noswapfile
+set number
+
+" to avoid annoying prompts to save files
+set hidden
+
+"" Code format options
+" set path to clang-format for clang-format.py
+if has('python')
+  map <C-K> :pyf /usr/share/clang/clang-format-7/clang-format.py<cr>
+  imap <C-K> <c-o>:pyf /usr/share/clang/clang-format-7/clang-format.py<cr>
+elseif has('python3')
+  map <C-K> :py3f /usr/share/clang/clang-format-7/clang-format.py<cr>
+  imap <C-K> <c-o>:py3f /usr/share/clang/clang-format-7/clang-format.py<cr>
+endif
+
+" Or use smartindent instead?
+set cindent
+
+" don't use \t and stick to 4 spaces indentation
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" search only in open folds
+set fdo-=search
+
+" search for tags starting with the dierctory of the -current- file
+set tags=./tags;/
+
+" set find path find:
+" first, our repository
+" set path+=
+" ...
+" set path+= 
+
+" ignore directories
+" set wildignore+=**/build/**
+" ...
+" set wildignore+=*.o
+
+" always show status line
+set laststatus=2
+
+" keep 3 lines below and above the cursor
+set scrolloff=3
+
+" size of a preview window
+set previewheight=20
+
+" Press F4 to toggle highlighting on/off, and show current value.
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
+" Press <F3> to toggle spell check
+noremap <F3> :set spell! spell?<CR>
+
+" shortcuts for copy/paste to/from system buffer
+" yank in visual mode only just in case
+vnoremap <Leader>y "+y
+
+noremap <Leader>p "+p
+noremap <Leader>P "+P
+
+" Fast select of buffers
+nnoremap gb :ls<CR>:b<Space>
+
+" Fast navigation in QuickFix
+nnoremap ge :cn<CR>
+nnoremap gE :cp<CR>
+
+" Search within a visual selection by pressing Alt + /
+" Doesn't work :(
+" vnoremap <M-/> <Esc> \%V
+
+" TODO create separate .vimrc for source and log files
+
+" settings for .log files
+" gstreamer log syntax higlight for *.log files
+ au BufNewfile,BufRead *.log set filetype=gstreamer_highlight_syntax
+ au BufNewfile,BufRead *.log set cursorline
+ " stop search at the end of the file
+ au BufNewfile,BufRead *.log set nowrapscan
+ " no wrapping
+ au BufNewfile,BufRead *.log set nowrap
